@@ -1,0 +1,135 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    text-align: center;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 2.5em;
+}
+
+.game-info {
+    margin-bottom: 20px;
+}
+
+.game-mode {
+    margin-bottom: 15px;
+}
+
+.game-mode label {
+    font-size: 1.1em;
+    color: #555;
+    margin-right: 10px;
+}
+
+.game-mode select {
+    padding: 5px 10px;
+    font-size: 1em;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    background-color: white;
+    cursor: pointer;
+}
+
+.game-mode select:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+.game-info p {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+#current-player {
+    font-weight: bold;
+    color: #007bff;
+    font-size: 1.3em;
+}
+
+#reset-btn {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#reset-btn:hover {
+    background-color: #c82333;
+}
+
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 5px;
+    width: 300px;
+    height: 300px;
+    margin: 0 auto 20px;
+    background-color: #333;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.cell {
+    background-color: white;
+    border: none;
+    font-size: 2em;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s;
+    border-radius: 5px;
+}
+
+.cell:hover {
+    background-color: #f8f9fa;
+}
+
+.cell.x {
+    color: #007bff;
+}
+
+.cell.o {
+    color: #dc3545;
+}
+
+.message {
+    font-size: 1.2em;
+    font-weight: bold;
+    min-height: 30px;
+    margin-top: 10px;
+}
+
+.message.win {
+    color: #28a745;
+}
+
+.message.tie {
+    color: #ffc107;
+}
