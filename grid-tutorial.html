@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Complete CSS Grid Tutorial</title>
+  <link rel="stylesheet" href="grid-styles.css">
+</head>
+
+<body>
+  <header>
+    <h1>Complete CSS Grid Tutorial</h1>
+    <p>A comprehensive guide to CSS Grid Layout properties and concepts</p>
+  </header>
+
+  <main>
+    <!-- SECTION 1: GRID CONTAINER BASICS -->
+    <section class="tutorial-section">
+      <h2>1. Grid Container Basics</h2>
+
+      <h3>display: grid</h3>
+      <p>The foundation - turns any element into a grid container</p>
+      <div class="example">
+        <div class="grid-container basic-grid">
+          <div class="grid-item">Item 1</div>
+          <div class="grid-item">Item 2</div>
+          <div class="grid-item">Item 3</div>
+          <div class="grid-item">Item 4</div>
+          <div class="grid-item">Item 5</div>
+          <div class="grid-item">Item 6</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: GRID TEMPLATE COLUMNS & ROWS -->
+    <section class="tutorial-section">
+      <h2>2. Grid Template Columns & Rows</h2>
+
+      <h3>grid-template-columns: Fixed Sizes</h3>
+      <p>Define column widths using fixed units</p>
+      <div class="example">
+        <div class="grid-container fixed-columns">
+          <div class="grid-item">1</div>
+          <div class="grid-item">2</div>
+          <div class="grid-item">3</div>
+          <div class="grid-item">4</div>
+          <div class="grid-item">5</div>
+          <div class="grid-item">6</div>
+        </div>
+      </div>
+
+      <h3>grid-template-columns: fr Units</h3>
+      <p>Fractional units distribute available space proportionally</p>
+      <div class="example">
+        <div class="grid-container fr-columns">
+          <div class="grid-item">1fr</div>
+          <div class="grid-item">2fr</div>
+          <div class="grid-item">1fr</div>
+          <div class="grid-item">Item 4</div>
+          <div class="grid-item">Item 5</div>
+          <div class="grid-item">Item 6</div>
+        </div>
+      </div>
+
+      <h3>grid-template-columns: repeat() Function</h3>
+      <p>Efficiently create repeating patterns</p>
+      <div class="example">
+        <div class="grid-container repeat-columns">
+          <div class="grid-item">1</div>
+          <div class="grid-item">2</div>
+          <div class="grid-item">3</div>
+          <div class="grid-item">4</div>
+          <div class="grid-item">5</div>
+          <div class="grid-item">6</div>
+        </div>
+      </div>
+
+      <h3>grid-template-columns: minmax() Function</h3>
+      <p>Set minimum and maximum sizes for flexible columns</p>
+      <div class="example">
+        <div class="grid-container minmax-columns">
+          <div class="grid-item">Min 100px Max 1fr</div>
+          <div class="grid-item">200px fixed</div>
+          <div class="grid-item">Min 100px Max 1fr</div>
+        </div>
+      </div>
+
+      <h3>grid-template-rows: Explicit Row Heights</h3>
+      <p>Define specific row heights</p>
+      <div class="example">
+        <div class="grid-container explicit-rows">
+          <div class="grid-item">Row 1 (100px)</div>
+          <div class="grid-item">Row 1</div>
+          <div class="grid-item">Row 2 (50px)</div>
+          <div class="grid-item">Row 2</div>
+          <div class="grid-item">Row 3 (auto)</div>
+          <div class="grid-item">Row 3</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: GRID GAPS -->
+    <section class="tutorial-section">
+      <h2>3. Grid Gaps</h2>
+
+      <h3>gap (grid-gap): Uniform Spacing</h3>
+      <p>Add space between all grid items</p>
+      <div class="example">
+        <div class="grid-container uniform-gap">
+          <div class="grid-item">1</div>
+          <div class="grid-item">2</div>
+          <div class="grid-item">3</div>
+          <div class="grid-item">4</div>
+          <div class="grid-item">5</div>
+          <div class="grid-item">6</div>
+        </div>
+      </div>
+
+      <h3>row-gap & column-gap: Different Spacing</h3>
+      <p>Set different gaps for rows and columns</p>
+      <div class="example">
+        <div class="grid-container different-gaps">
+          <div class="grid-item">1</div>
+          <div class="grid-item">2</div>
+          <div class="grid-item">3</div>
+          <div class="grid-item">4</div>
+          <div class="grid-item">5</div>
+          <div class="grid-item">6</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: GRID AREAS -->
+    <section class="tutorial-section">
+      <h2>4. Grid Areas & Template Areas</h2>
+
+      <h3>grid-template-areas: Named Grid Areas</h3>
+      <p>Create semantic layouts with named areas</p>
+      <div class="example">
+        <div class="grid-container template-areas">
+          <div class="grid-item area-header">Header</div>
+          <div class="grid-item area-sidebar">Sidebar</div>
+          <div class="grid-item area-main">Main Content</div>
+          <div class="grid-item area-footer">Footer</div>
+        </div>
+      </div>
+
+      <h3>Complex Layout with Grid Areas</h3>
+      <p>More sophisticated layout patterns</p>
+      <div class="example">
+        <div class="grid-container complex-areas">
+          <div class="grid-item complex-header">Header</div>
+          <div class="grid-item complex-nav">Nav</div>
+          <div class="grid-item complex-main">Main</div>
+          <div class="grid-item complex-aside">Aside</div>
+          <div class="grid-item complex-ads">Ads</div>
+          <div class="grid-item complex-footer">Footer</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: GRID ITEM POSITIONING -->
+    <section class="tutorial-section">
+      <h2>5. Grid Item Positioning</h2>
+
+      <h3>grid-column & grid-row: Line-based Positioning</h3>
+      <p>Position items using grid lines</p>
+      <div class="example">
+        <div class="grid-container line-positioning">
+          <div class="grid-item item-span-2-cols">Spans 2 columns</div>
+          <div class="grid-item">2</div>
+          <div class="grid-item item-span-2-rows">Spans 2 rows</div>
+          <div class="grid-item">4</div>
+          <div class="grid-item">5</div>
+        </div>
+      </div>
+
+      <h3>grid-column-start/end & grid-row-start/end</h3>
+      <p>Explicit start and end line positioning</p>
+      <div class="example">
+        <div class="grid-container explicit-positioning">
+          <div class="grid-item positioned-item">Positioned Item</div>
+          <div class="grid-item">2</div>
+          <div class="grid-item">3</div>
+          <div class="grid-item">4</div>
+          <div class="grid-item">5</div>
+          <div class="grid-item">6</div>
+        </div>
+      </div>
+
+      <h3>grid-area: Shorthand Positioning</h3>
+      <p>Combine row and column positioning</p>
+      <div class="example">
+        <div class="grid-container area-positioning">
+          <div class="grid-item area-positioned">Area Positioned</div>
+          <div class="grid-item">2</div>
+          <div class="grid-item">3</div>
+          <div class="grid-item">4</div>
+          <div class="grid-item">5</div>
+          <div class="grid-item">6</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: GRID ALIGNMENT -->
+    <section class="tutorial-section">
+      <h2>6. Grid Alignment</h2>
+
+      <h3>justify-items: Horizontal Item Alignment</h3>
+      <p>Align items horizontally within their grid areas</p>
+
+      <h4>justify-items: stretch (default)</h4>
+      <div class="example">
+        <div class="grid-container justify-stretch">
+          <div class="grid-item small-content">1</div>
+          <div class="grid-item small-content">2</div>
+          <div class="grid-item small-content">3</div>
+          <div class="grid-item small-content">4</div>
+        </div>
+      </div>
+
+      <h4>justify-items: start</h4>
+      <div class="example">
+        <div class="grid-container justify-start">
+          <div class="grid-item small-content">1</div>
+          <div class="grid-item small-content">2</div>
+          <div class="grid-item small-content">3</div>
+          <div class="grid-item small-content">4</div>
+        </div>
+      </div>
+
+      <h4>justify-items: center</h4>
+      <div class="example">
+        <div class="grid-container justify-center">
+          <div class="grid-item small-content">1</div>
+          <div class="grid-item small-content">2</div>
+          <div class="grid-item small-content">3</div>
+          <div class="grid-item small-content">4</div>
+        </div>
+      </div>
+
+      <h4>justify-items: end</h4>
+      <div class="example">
+        <div class="grid-container justify-end">
+          <div class="grid-item small-content">1</div>
+          <div class="grid-item small-content">2</div>
+          <div class="grid-item small-content">3</div>
+          <div class="grid-item small-content">4</div>
+        </div>
+      </div>
+
+      <h3>align-items: Vertical Item Alignment</h3>
+      <p>Align items vertically within their grid areas</p>
+
+      <h4>align-items: stretch (default)</h4>
+      <div class="example">
+        <div class="grid-container tall-grid align-stretch">
+          <div class="grid-item small-content">1</div>
+          <div class="grid-item small-content">2</div>
+          <div class="grid-item small-content">3</div>
+          <div class="grid-item small-content">4</div>
+        </div>
+      </div>
+
+      <h4>align-items: start</h4>
+      <div class="example">
+        <div class="grid-container tall-grid align-start">
+          <div class="grid-item small-content">1</div>
+          <div class="grid-item small-content">2</div>
+          <div class="grid-item small-content">3</div>
+          <div class="grid-item small-content">4</div>
+        </div>
+      </div>
+
+      <h4>align-items: center</h4>
+      <div class="example">
+        <div class="grid-container tall-grid align-center">
+          <div class="grid-item small-content">1</div>
+          <div class="grid-item small-content">2</div>
+          <div class="grid-item small-content">3</div>
+          <div class="grid-item small-content">4</div>
+        </div>
+      </div>
+
+      <h4>align-items: end</h4>
+      <div class="example">
+        <div class="grid-container tall-grid align-end">
+          <div class="grid-item small-content">1</div>
+          <div class="grid-item small-content">2</div>
+          <div class="grid-item small-content">3</div>
+          <div class="grid-item small-content">4</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 7: GRID CONTAINER ALIGNMENT -->
+    <section class="tutorial-section">
+      <h2>7. Grid Container Alignment</h2>
+
+      <h3>justify-content: Horizontal Grid Alignment</h3>
+      <p>Align the entire grid horizontally within the container</p>
+
+      <h4>justify-content: start</h4>
+      <div class="example">
+        <div class="grid-container wide-container content-justify-start">
+          <div class="grid-item">1</div>
+          <div class="grid-item">2</div>
+          <div class="grid-item">3</div>
+          <div class="grid-item">4</div>
+        </div>
+      </div>
+
+      <h4>justify-content: center</h4>
+      <div class="example">
+        <div class="grid-container wide-container content-justify-center">
+          <div class="grid-item">1</div>
+          <div class="grid-item">2</div>
+          <div class="grid-item">3</div>
+          <div class="grid-item">4</div>
+        </div>
+      </div>
+
+      <h4>justify-content: space-between</h4>
+      <div class="example">
+        <div class="grid-container wide-container content-justify-between">
+          <div class="grid-item">1</div>
+          <div class="grid-item">2</div>
+          <div class="grid-item">3</div>
+          <div class="grid-item">4</div>
+        </div>
+      </div>
+
+      <h3>align-content: Vertical Grid Alignment</h3>
+      <p>Align the entire grid vertically within the container</p>
+
+      <h4>align-content: center</h4>
+      <div class="example">
+        <div class="grid-container tall-container content-align-center">
+          <div class="grid-item">1</div>
+          <div class="grid-item">2</div>
+          <div class="grid-item">3</div>
+          <div class="grid-item">4</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 8: INDIVIDUAL ITEM ALIGNMENT -->
+    <section class="tutorial-section">
+      <h2>8. Individual Item Alignment</h2>
+
+      <h3>justify-self & align-self</h3>
+      <p>Override container alignment for specific items</p>
+      <div class="example">
+        <div class="grid-container tall-grid individual-alignment">
+          <div class="grid-item self-start">justify-self: start</div>
+          <div class="grid-item self-center">justify-self: center</div>
+          <div class="grid-item self-end">justify-self: end</div>
+          <div class="grid-item align-self-start">align-self: start</div>
+          <div class="grid-item align-self-center">align-self: center</div>
+          <div class="grid-item align-self-end">align-self: end</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 9: AUTO-FIT & AUTO-FILL -->
+    <section class="tutorial-section">
+      <h2>9. Auto-fit & Auto-fill</h2>
+
+      <h3>repeat(auto-fit, minmax())</h3>
+      <p>Responsive columns that collapse empty tracks</p>
+      <div class="example">
+        <div class="grid-container auto-fit">
+          <div class="grid-item">1</div>
+          <div class="grid-item">2</div>
+          <div class="grid-item">3</div>
+        </div>
+      </div>
+
+      <h3>repeat(auto-fill, minmax())</h3>
+      <p>Responsive columns that maintain empty tracks</p>
+      <div class="example">
+        <div class="grid-container auto-fill">
+          <div class="grid-item">1</div>
+          <div class="grid-item">2</div>
+          <div class="grid-item">3</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 10: PRACTICAL EXAMPLES -->
+    <section class="tutorial-section">
+      <h2>10. Practical Examples</h2>
+
+      <h3>Card Grid Layout</h3>
+      <p>Responsive card layout with equal heights</p>
+      <div class="example">
+        <div class="card-grid">
+          <div class="card">
+            <h4>Card 1</h4>
+            <p>This is some content for the first card.</p>
+            <button>Read More</button>
+          </div>
+          <div class="card">
+            <h4>Card 2</h4>
+            <p>This card has more content to demonstrate how CSS Grid handles varying content lengths automatically.</p>
+            <button>Read More</button>
+          </div>
+          <div class="card">
+            <h4>Card 3</h4>
+            <p>Short content.</p>
+            <button>Read More</button>
+          </div>
+          <div class="card">
+            <h4>Card 4</h4>
+            <p>Another card with different content length.</p>
+            <button>Read More</button>
+          </div>
+        </div>
+      </div>
+
+      <h3>Website Layout</h3>
+      <p>Complete responsive website layout</p>
+      <div class="example">
+        <div class="website-layout">
+          <header class="site-header">Header</header>
+          <nav class="site-nav">Navigation</nav>
+          <main class="site-main">
+            <h4>Main Content</h4>
+            <p>This is the main content area of the website.</p>
+          </main>
+          <aside class="site-sidebar">
+            <h4>Sidebar</h4>
+            <ul>
+              <li>Link 1</li>
+              <li>Link 2</li>
+              <li>Link 3</li>
+            </ul>
+          </aside>
+          <footer class="site-footer">Footer</footer>
+        </div>
+      </div>
+
+      <h3>Image Gallery</h3>
+      <p>Responsive image gallery with varying sizes</p>
+      <div class="example">
+        <div class="image-gallery">
+          <div class="gallery-item large">Large Image</div>
+          <div class="gallery-item">Image 1</div>
+          <div class="gallery-item">Image 2</div>
+          <div class="gallery-item tall">Tall Image</div>
+          <div class="gallery-item">Image 3</div>
+          <div class="gallery-item">Image 4</div>
+          <div class="gallery-item wide">Wide Image</div>
+          <div class="gallery-item">Image 5</div>
+        </div>
+      </div>
+
+      <h3>Dashboard Layout</h3>
+      <p>Complex dashboard with different sized widgets</p>
+      <div class="example">
+        <div class="dashboard">
+          <div class="widget widget-stats">
+            <h4>Statistics</h4>
+            <p>Key metrics and numbers</p>
+          </div>
+          <div class="widget widget-chart">
+            <h4>Chart</h4>
+            <p>Data visualization</p>
+          </div>
+          <div class="widget widget-recent">
+            <h4>Recent Activity</h4>
+            <p>Latest updates</p>
+          </div>
+          <div class="widget widget-quick">
+            <h4>Quick Actions</h4>
+            <button>Action 1</button>
+            <button>Action 2</button>
+          </div>
+          <div class="widget widget-large">
+            <h4>Main Dashboard</h4>
+            <p>Primary dashboard content with more detailed information and controls.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 11: GRID VS FLEXBOX -->
+    <section class="tutorial-section">
+      <h2>11. Grid vs Flexbox Comparison</h2>
+
+      <h3>When to Use Grid</h3>
+      <div class="comparison-grid">
+        <div class="comparison-item">
+          <h4>✅ 2D Layouts</h4>
+          <p>When you need control over both rows and columns</p>
+        </div>
+        <div class="comparison-item">
+          <h4>✅ Complex Layouts</h4>
+          <p>Magazine-style layouts, dashboards, image galleries</p>
+        </div>
+        <div class="comparison-item">
+          <h4>✅ Overlapping Elements</h4>
+          <p>When items need to overlap or be positioned precisely</p>
+        </div>
+        <div class="comparison-item">
+          <h4>✅ Gap Control</h4>
+          <p>Built-in gap properties for consistent spacing</p>
+        </div>
+      </div>
+
+      <h3>When to Use Flexbox</h3>
+      <div class="comparison-grid">
+        <div class="comparison-item">
+          <h4>✅ 1D Layouts</h4>
+          <p>When arranging items in a single direction</p>
+        </div>
+        <div class="comparison-item">
+          <h4>✅ Content-Based Sizing</h4>
+          <p>When item sizes depend on their content</p>
+        </div>
+        <div class="comparison-item">
+          <h4>✅ Navigation Bars</h4>
+          <p>Perfect for header navigation and toolbar layouts</p>
+        </div>
+        <div class="comparison-item">
+          <h4>✅ Centering</h4>
+          <p>Easy horizontal and vertical centering</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 CSS Grid Tutorial - Complete Guide to CSS Grid Layout</p>
+  </footer>
+</body>
+
+</html>

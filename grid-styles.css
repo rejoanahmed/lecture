@@ -1,0 +1,923 @@
+/* ==========================================================================
+   COMPLETE CSS GRID TUTORIAL CSS
+   ========================================================================== */
+
+/*
+   CSS Reset and Base Styles
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Essential for predictable grid behavior */
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+}
+
+/*
+   Typography and Layout
+   ========================================================================== */
+header {
+    text-align: center;
+    padding: 2rem 0;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    margin-bottom: 2rem;
+}
+
+header h1 {
+    color: white;
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+header p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.2rem;
+}
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.tutorial-section {
+    background: white;
+    margin-bottom: 2rem;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.tutorial-section h2 {
+    color: #4a5568;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 3px solid #667eea;
+    padding-bottom: 0.5rem;
+}
+
+.tutorial-section h3 {
+    color: #2d3748;
+    font-size: 1.3rem;
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+    background: #f7fafc;
+    padding: 0.8rem 1rem;
+    border-left: 4px solid #667eea;
+    border-radius: 0 8px 8px 0;
+}
+
+.tutorial-section h4 {
+    color: #2d3748;
+    font-size: 1.1rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    background: #edf2f7;
+    padding: 0.5rem 0.8rem;
+    border-left: 3px solid #a0aec0;
+    border-radius: 0 6px 6px 0;
+}
+
+.tutorial-section p {
+    margin-bottom: 1rem;
+    color: #718096;
+    font-style: italic;
+}
+
+/*
+   Example Container Styling
+   ========================================================================== */
+.example {
+    margin: 1.5rem 0;
+    padding: 1rem;
+    background: #f8f9fa;
+    border: 2px dashed #dee2e6;
+    border-radius: 8px;
+    position: relative;
+}
+
+/* Add a visual indicator that this is a grid container */
+.example::before {
+    content: "GRID CONTAINER";
+    position: absolute;
+    top: -10px;
+    left: 10px;
+    background: #667eea;
+    color: white;
+    padding: 2px 8px;
+    font-size: 0.7rem;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+/*
+   CORE GRID STYLES
+   ========================================================================== */
+
+/*
+   Basic Grid Container
+   The foundation of all CSS Grid layouts
+   ========================================================================== */
+.grid-container {
+    display: grid; /* This is what makes an element a grid container */
+    background: #e2e8f0;
+    border: 2px solid #cbd5e0;
+    border-radius: 8px;
+    padding: 1rem;
+    margin: 1rem 0;
+    position: relative;
+}
+
+/*
+   Grid Items - Default Styling
+   ========================================================================== */
+.grid-item {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    padding: 1rem;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: bold;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 60px;
+}
+
+.grid-item:hover {
+    transform: translateY(-2px);
+}
+
+/*
+   BASIC GRID SETUP
+   ========================================================================== */
+
+/* Basic grid with default behavior - items flow into implicit grid */
+.basic-grid {
+    /* No explicit grid definition - items create implicit grid */
+}
+
+/*
+   GRID-TEMPLATE-COLUMNS & GRID-TEMPLATE-ROWS
+   Define the explicit grid structure
+   ========================================================================== */
+
+/* Fixed column sizes using pixels */
+.fixed-columns {
+    grid-template-columns: 100px 200px 150px;
+    /* Creates 3 columns: 100px, 200px, 150px wide */
+}
+
+/* Fractional units (fr) - distribute available space proportionally */
+.fr-columns {
+    grid-template-columns: 1fr 2fr 1fr;
+    /* Creates 3 columns: first gets 1 part, second gets 2 parts, third gets 1 part */
+}
+
+/* repeat() function - create repeating patterns efficiently */
+.repeat-columns {
+    grid-template-columns: repeat(3, 1fr);
+    /* Same as: 1fr 1fr 1fr - creates 3 equal columns */
+}
+
+/* minmax() function - set minimum and maximum sizes */
+.minmax-columns {
+    grid-template-columns: minmax(100px, 1fr) 200px minmax(100px, 1fr);
+    /* First and third columns: min 100px, max 1fr; middle column: fixed 200px */
+}
+
+/* Explicit row heights */
+.explicit-rows {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 100px 50px auto;
+    /* Creates 3 rows: 100px tall, 50px tall, auto height */
+}
+
+/*
+   GRID GAPS
+   Control spacing between grid items
+   ========================================================================== */
+
+/* Uniform gap between all items */
+.uniform-gap {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px; /* Same as: row-gap: 20px; column-gap: 20px; */
+}
+
+/* Different gaps for rows and columns */
+.different-gaps {
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 10px;    /* 10px gap between rows */
+    column-gap: 30px; /* 30px gap between columns */
+}
+
+/*
+   GRID-TEMPLATE-AREAS
+   Create semantic layouts with named areas
+   ========================================================================== */
+
+/* Simple layout with named areas */
+.template-areas {
+    grid-template-columns: 200px 1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+        "header header"    /* Header spans both columns */
+        "sidebar main"     /* Sidebar and main content */
+        "footer footer";   /* Footer spans both columns */
+    gap: 15px;
+    min-height: 300px;
+}
+
+/* Assign items to named areas */
+.area-header { grid-area: header; background: linear-gradient(135deg, #fc8181, #f56565); }
+.area-sidebar { grid-area: sidebar; background: linear-gradient(135deg, #68d391, #48bb78); }
+.area-main { grid-area: main; background: linear-gradient(135deg, #63b3ed, #4299e1); }
+.area-footer { grid-area: footer; background: linear-gradient(135deg, #b794f6, #9f7aea); }
+
+/* Complex layout with more areas */
+.complex-areas {
+    grid-template-columns: 150px 1fr 200px 100px;
+    grid-template-rows: 60px 40px 1fr 50px;
+    grid-template-areas:
+        "header header header header"
+        "nav nav nav ads"
+        "aside main main ads"
+        "footer footer footer footer";
+    gap: 10px;
+    min-height: 400px;
+}
+
+.complex-header { grid-area: header; background: linear-gradient(135deg, #fc8181, #f56565); }
+.complex-nav { grid-area: nav; background: linear-gradient(135deg, #68d391, #48bb78); }
+.complex-main { grid-area: main; background: linear-gradient(135deg, #63b3ed, #4299e1); }
+.complex-aside { grid-area: aside; background: linear-gradient(135deg, #b794f6, #9f7aea); }
+.complex-ads { grid-area: ads; background: linear-gradient(135deg, #f6ad55, #ed8936); }
+.complex-footer { grid-area: footer; background: linear-gradient(135deg, #4fd1c7, #38b2ac); }
+
+/*
+   GRID ITEM POSITIONING
+   Position items using grid lines and spans
+   ========================================================================== */
+
+/* Line-based positioning using span */
+.line-positioning {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 80px);
+    gap: 10px;
+}
+
+/* Span multiple columns */
+.item-span-2-cols {
+    grid-column: span 2; /* Spans 2 columns from current position */
+    background: linear-gradient(135deg, #fc8181, #f56565);
+}
+
+/* Span multiple rows */
+.item-span-2-rows {
+    grid-row: span 2; /* Spans 2 rows from current position */
+    background: linear-gradient(135deg, #68d391, #48bb78);
+}
+
+/* Explicit line positioning */
+.explicit-positioning {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 80px);
+    gap: 10px;
+}
+
+/* Position using explicit start and end lines */
+.positioned-item {
+    grid-column-start: 2;  /* Start at column line 2 */
+    grid-column-end: 4;    /* End at column line 4 (spans 2 columns) */
+    grid-row-start: 1;     /* Start at row line 1 */
+    grid-row-end: 3;       /* End at row line 3 (spans 2 rows) */
+    background: linear-gradient(135deg, #fc8181, #f56565);
+}
+
+/* Area shorthand positioning */
+.area-positioning {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 80px);
+    gap: 10px;
+}
+
+/* grid-area: row-start / column-start / row-end / column-end */
+.area-positioned {
+    grid-area: 1 / 2 / 3 / 4; /* Same as above positioned-item */
+    background: linear-gradient(135deg, #fc8181, #f56565);
+}
+
+/*
+   GRID ALIGNMENT - ITEMS
+   Control how items align within their grid areas
+   ========================================================================== */
+
+/* Make items smaller to see alignment effects */
+.small-content {
+    min-height: 40px;
+    max-width: 60px;
+    margin: 0 auto; /* Reset for justify-items demos */
+}
+
+/* justify-items: Controls horizontal alignment of items in their areas */
+.justify-stretch {
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: stretch; /* Default - items stretch to fill width */
+}
+
+.justify-stretch .small-content {
+    max-width: none; /* Allow stretching */
+}
+
+.justify-start {
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: start; /* Items align to start of their area */
+}
+
+.justify-center {
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center; /* Items center in their area */
+}
+
+.justify-end {
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: end; /* Items align to end of their area */
+}
+
+/* align-items: Controls vertical alignment of items in their areas */
+.tall-grid {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 120px);
+    gap: 10px;
+}
+
+.align-stretch {
+    align-items: stretch; /* Default - items stretch to fill height */
+}
+
+.align-stretch .small-content {
+    min-height: auto; /* Allow stretching */
+}
+
+.align-start {
+    align-items: start; /* Items align to top of their area */
+}
+
+.align-center {
+    align-items: center; /* Items center vertically in their area */
+}
+
+.align-end {
+    align-items: end; /* Items align to bottom of their area */
+}
+
+/*
+   GRID ALIGNMENT - CONTAINER
+   Control how the entire grid aligns within the container
+   ========================================================================== */
+
+/* Make containers larger to see content alignment */
+.wide-container {
+    width: 100%;
+    min-width: 500px;
+}
+
+.tall-container {
+    min-height: 300px;
+}
+
+/* justify-content: Horizontal alignment of the entire grid */
+.content-justify-start {
+    grid-template-columns: repeat(2, 100px);
+    justify-content: start; /* Grid starts at left */
+}
+
+.content-justify-center {
+    grid-template-columns: repeat(2, 100px);
+    justify-content: center; /* Grid centers horizontally */
+}
+
+.content-justify-between {
+    grid-template-columns: repeat(2, 100px);
+    justify-content: space-between; /* Columns distributed with space between */
+}
+
+/* align-content: Vertical alignment of the entire grid */
+.content-align-center {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 60px);
+    align-content: center; /* Grid centers vertically */
+    gap: 10px;
+}
+
+/*
+   INDIVIDUAL ITEM ALIGNMENT
+   Override container alignment for specific items
+   ========================================================================== */
+
+.individual-alignment {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 100px);
+    gap: 10px;
+    justify-items: center; /* Default for all items */
+    align-items: center;   /* Default for all items */
+}
+
+/* justify-self: Override horizontal alignment for individual items */
+.self-start {
+    justify-self: start;
+    background: linear-gradient(135deg, #fc8181, #f56565);
+}
+
+.self-center {
+    justify-self: center;
+    background: linear-gradient(135deg, #68d391, #48bb78);
+}
+
+.self-end {
+    justify-self: end;
+    background: linear-gradient(135deg, #63b3ed, #4299e1);
+}
+
+/* align-self: Override vertical alignment for individual items */
+.align-self-start {
+    align-self: start;
+    background: linear-gradient(135deg, #b794f6, #9f7aea);
+}
+
+.align-self-center {
+    align-self: center;
+    background: linear-gradient(135deg, #f6ad55, #ed8936);
+}
+
+.align-self-end {
+    align-self: end;
+    background: linear-gradient(135deg, #4fd1c7, #38b2ac);
+}
+
+/*
+   AUTO-FIT & AUTO-FILL
+   Responsive grid layouts that adapt to content
+   ========================================================================== */
+
+/* auto-fit: Collapses empty tracks, stretches items to fill */
+.auto-fit {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+}
+
+/* auto-fill: Maintains empty tracks, doesn't stretch items as much */
+.auto-fill {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+}
+
+/*
+   PRACTICAL EXAMPLES
+   Real-world layouts and use cases
+   ========================================================================== */
+
+/*
+   Responsive Card Grid
+   Cards automatically wrap and maintain consistent sizing
+   ========================================================================== */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 1rem 0;
+}
+
+.card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    display: grid;
+    grid-template-rows: auto 1fr auto; /* Header, content, button */
+    gap: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.card h4 {
+    color: #2d3748;
+    margin: 0;
+    background: none;
+    padding: 0;
+    border: none;
+}
+
+.card p {
+    color: #718096;
+    margin: 0;
+    font-style: normal;
+}
+
+.card button {
+    justify-self: start;
+    background: #667eea;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    font-weight: 600;
+}
+
+.card button:hover {
+    background: #5a67d8;
+}
+
+/*
+   Website Layout
+   Complete responsive website structure
+   ========================================================================== */
+.website-layout {
+    display: grid;
+    grid-template-columns: 200px 1fr 150px;
+    grid-template-rows: 80px auto 1fr 60px;
+    grid-template-areas:
+        "header header header"
+        "nav nav nav"
+        "sidebar main main"
+        "footer footer footer";
+    gap: 1rem;
+    min-height: 500px;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.site-header {
+    grid-area: header;
+    background: #2d3748;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.site-nav {
+    grid-area: nav;
+    background: #4a5568;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+}
+
+.site-main {
+    grid-area: main;
+    background: #f7fafc;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.site-main h4 {
+    color: #2d3748;
+    margin-bottom: 1rem;
+    background: none;
+    padding: 0;
+    border: none;
+}
+
+.site-main p {
+    color: #718096;
+    font-style: normal;
+}
+
+.site-sidebar {
+    grid-area: sidebar;
+    background: #edf2f7;
+    padding: 1.5rem;
+}
+
+.site-sidebar h4 {
+    color: #2d3748;
+    margin-bottom: 1rem;
+    background: none;
+    padding: 0;
+    border: none;
+    font-size: 1rem;
+}
+
+.site-sidebar ul {
+    list-style: none;
+}
+
+.site-sidebar li {
+    padding: 0.5rem 0;
+    color: #718096;
+    border-bottom: 1px solid #cbd5e0;
+}
+
+.site-footer {
+    grid-area: footer;
+    background: #2d3748;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+}
+
+/*
+   Image Gallery
+   Masonry-style layout with different sized items
+   ========================================================================== */
+.image-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-auto-rows: 150px;
+    gap: 1rem;
+}
+
+.gallery-item {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+}
+
+/* Different sized items */
+.gallery-item.large {
+    grid-column: span 2;
+    grid-row: span 2;
+    background: linear-gradient(135deg, #fc8181, #f56565);
+}
+
+.gallery-item.wide {
+    grid-column: span 2;
+    background: linear-gradient(135deg, #68d391, #48bb78);
+}
+
+.gallery-item.tall {
+    grid-row: span 2;
+    background: linear-gradient(135deg, #63b3ed, #4299e1);
+}
+
+/*
+   Dashboard Layout
+   Complex dashboard with various widget sizes
+   ========================================================================== */
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 120px);
+    gap: 1.5rem;
+}
+
+.widget {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.widget h4 {
+    color: #2d3748;
+    margin: 0 0 0.5rem 0;
+    background: none;
+    padding: 0;
+    border: none;
+    font-size: 1.1rem;
+}
+
+.widget p {
+    color: #718096;
+    margin: 0;
+    font-style: normal;
+    font-size: 0.9rem;
+}
+
+.widget button {
+    background: #667eea;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    margin: 0.25rem 0;
+    transition: background 0.3s ease;
+}
+
+.widget button:hover {
+    background: #5a67d8;
+}
+
+/* Widget positioning */
+.widget-stats { grid-area: 1 / 1 / 2 / 2; }
+.widget-chart { grid-area: 1 / 2 / 3 / 4; }
+.widget-recent { grid-area: 1 / 4 / 3 / 5; }
+.widget-quick { grid-area: 2 / 1 / 3 / 2; }
+.widget-large { grid-area: 3 / 1 / 5 / 5; }
+
+/*
+   GRID VS FLEXBOX COMPARISON
+   ========================================================================== */
+.comparison-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.comparison-item {
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-left: 4px solid #667eea;
+}
+
+.comparison-item h4 {
+    color: #2d3748;
+    margin: 0 0 0.5rem 0;
+    background: none;
+    padding: 0;
+    border: none;
+    font-size: 1.1rem;
+}
+
+.comparison-item p {
+    color: #718096;
+    margin: 0;
+    font-style: normal;
+    font-size: 0.9rem;
+}
+
+/*
+   Footer
+   ========================================================================== */
+footer {
+    text-align: center;
+    padding: 2rem;
+    margin-top: 3rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    color: white;
+}
+
+/*
+   RESPONSIVE DESIGN WITH GRID
+   ========================================================================== */
+@media (max-width: 768px) {
+    .website-layout {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "header"
+            "nav"
+            "main"
+            "sidebar"
+            "footer";
+    }
+
+    .dashboard {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(5, auto);
+    }
+
+    .widget-stats { grid-area: auto; }
+    .widget-chart { grid-area: auto; }
+    .widget-recent { grid-area: auto; }
+    .widget-quick { grid-area: auto; }
+    .widget-large { grid-area: auto; }
+
+    .image-gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-item.large,
+    .gallery-item.wide {
+        grid-column: span 1;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    .tutorial-section {
+        padding: 1rem;
+    }
+
+    .complex-areas {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "header"
+            "nav"
+            "main"
+            "aside"
+            "ads"
+            "footer";
+    }
+}
+
+@media (max-width: 480px) {
+    .card-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .comparison-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/*
+   DEBUGGING HELPERS
+   Uncomment these to visualize grid lines and areas
+   ========================================================================== */
+/*
+.grid-container {
+    outline: 2px solid red !important;
+}
+
+.grid-item {
+    outline: 1px solid blue !important;
+}
+*/
+
+/*
+   KEY CSS GRID CONCEPTS SUMMARY:
+
+   GRID CONTAINER (parent) properties:
+   - display: grid | inline-grid
+   - grid-template-columns: <track-size> ... | repeat() | minmax() | auto-fit | auto-fill
+   - grid-template-rows: <track-size> ... | repeat() | minmax()
+   - grid-template-areas: "area1 area2" "area3 area4"
+   - grid-template: shorthand for rows, columns, and areas
+   - gap (grid-gap): <row-gap> <column-gap>
+   - row-gap (grid-row-gap): <length>
+   - column-gap (grid-column-gap): <length>
+   - justify-items: start | end | center | stretch
+   - align-items: start | end | center | stretch
+   - justify-content: start | end | center | stretch | space-around | space-between | space-evenly
+   - align-content: start | end | center | stretch | space-around | space-between | space-evenly
+   - grid-auto-columns: <track-size>
+   - grid-auto-rows: <track-size>
+   - grid-auto-flow: row | column | row dense | column dense
+
+   GRID ITEM (child) properties:
+   - grid-column-start: <line> | span <number>
+   - grid-column-end: <line> | span <number>
+   - grid-row-start: <line> | span <number>
+   - grid-row-end: <line> | span <number>
+   - grid-column: <start-line> / <end-line> | span <number>
+   - grid-row: <start-line> / <end-line> | span <number>
+   - grid-area: <name> | <row-start> / <column-start> / <row-end> / <column-end>
+   - justify-self: start | end | center | stretch
+   - align-self: start | end | center | stretch
+
+   TRACK SIZING:
+   - Fixed: px, em, rem, %
+   - Flexible: fr (fractional unit)
+   - Content-based: auto, min-content, max-content
+   - Functions: minmax(min, max), fit-content(size)
+   - Keywords: auto-fit, auto-fill (with repeat())
+
+   GRID LINES:
+   - Numbered from 1 (not 0)
+   - Can be named: [line-name]
+   - Negative numbers count from end
+   - span keyword for relative positioning
+
+   WHEN TO USE GRID:
+   - 2D layouts (rows AND columns)
+   - Complex page layouts
+   - Overlapping elements
+   - Precise item placement
+   - Magazine-style layouts
+   - Dashboards and admin panels
+   - Image galleries with different sizes
+
+   ========================================================================== */
