@@ -1,0 +1,784 @@
+/* ==========================================================================
+   COMPLETE FLEXBOX TUTORIAL CSS
+   ========================================================================== */
+
+/*
+   CSS Reset and Base Styles
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Essential for predictable flex behavior */
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+}
+
+/*
+   Typography and Layout
+   ========================================================================== */
+header {
+    text-align: center;
+    padding: 2rem 0;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    margin-bottom: 2rem;
+}
+
+header h1 {
+    color: white;
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+header p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.2rem;
+}
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.tutorial-section {
+    background: white;
+    margin-bottom: 2rem;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.tutorial-section h2 {
+    color: #4a5568;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 3px solid #667eea;
+    padding-bottom: 0.5rem;
+}
+
+.tutorial-section h3 {
+    color: #2d3748;
+    font-size: 1.3rem;
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+    background: #f7fafc;
+    padding: 0.8rem 1rem;
+    border-left: 4px solid #667eea;
+    border-radius: 0 8px 8px 0;
+}
+
+.tutorial-section p {
+    margin-bottom: 1rem;
+    color: #718096;
+    font-style: italic;
+}
+
+/*
+   Example Container Styling
+   ========================================================================== */
+.example {
+    margin: 1.5rem 0;
+    padding: 1rem;
+    background: #f8f9fa;
+    border: 2px dashed #dee2e6;
+    border-radius: 8px;
+    position: relative;
+}
+
+/* Add a visual indicator that this is a flex container */
+.example::before {
+    content: "FLEX CONTAINER";
+    position: absolute;
+    top: -10px;
+    left: 10px;
+    background: #667eea;
+    color: white;
+    padding: 2px 8px;
+    font-size: 0.7rem;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+/*
+   CORE FLEXBOX STYLES
+   ========================================================================== */
+
+/*
+   Basic Flex Container
+   The foundation of all flexbox layouts
+   ========================================================================== */
+.flex-container {
+    display: flex; /* This is what makes an element a flex container */
+    background: #e2e8f0;
+    border: 2px solid #cbd5e0;
+    border-radius: 8px;
+    padding: 1rem;
+    margin: 1rem 0;
+    position: relative;
+}
+
+/*
+   Flex Items - Default Styling
+   ========================================================================== */
+.flex-item {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    padding: 1rem;
+    margin: 0.25rem;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: bold;
+    min-width: 80px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease;
+}
+
+.flex-item:hover {
+    transform: translateY(-2px);
+}
+
+/*
+   FLEX-DIRECTION PROPERTY
+   Controls the main axis direction
+   ========================================================================== */
+
+/* flex-direction: row (default)
+   Main axis: left to right
+   Cross axis: top to bottom */
+.flex-row {
+    flex-direction: row;
+}
+
+/* flex-direction: row-reverse
+   Main axis: right to left
+   Cross axis: top to bottom */
+.flex-row-reverse {
+    flex-direction: row-reverse;
+}
+
+/* flex-direction: column
+   Main axis: top to bottom
+   Cross axis: left to right */
+.flex-column {
+    flex-direction: column;
+    max-width: 200px; /* Constrain width to show column effect */
+}
+
+/* flex-direction: column-reverse
+   Main axis: bottom to top
+   Cross axis: left to right */
+.flex-column-reverse {
+    flex-direction: column-reverse;
+    max-width: 200px;
+}
+
+/*
+   JUSTIFY-CONTENT PROPERTY
+   Controls alignment along the main axis
+   ========================================================================== */
+
+/* justify-content: flex-start (default)
+   Items packed toward the start of the main axis */
+.justify-start {
+    justify-content: flex-start;
+}
+
+/* justify-content: flex-end
+   Items packed toward the end of the main axis */
+.justify-end {
+    justify-content: flex-end;
+}
+
+/* justify-content: center
+   Items centered along the main axis */
+.justify-center {
+    justify-content: center;
+}
+
+/* justify-content: space-between
+   Items evenly distributed; first item at start, last at end */
+.justify-between {
+    justify-content: space-between;
+}
+
+/* justify-content: space-around
+   Items evenly distributed with equal space around each item */
+.justify-around {
+    justify-content: space-around;
+}
+
+/* justify-content: space-evenly
+   Items evenly distributed with equal space between them */
+.justify-evenly {
+    justify-content: space-evenly;
+}
+
+/*
+   ALIGN-ITEMS PROPERTY
+   Controls alignment along the cross axis
+   ========================================================================== */
+
+/* Make containers taller to see cross-axis alignment effects */
+.tall-container {
+    min-height: 150px;
+}
+
+/* align-items: stretch (default)
+   Items stretch to fill the cross axis */
+.align-stretch {
+    align-items: stretch;
+}
+
+/* align-items: flex-start
+   Items packed toward the start of the cross axis */
+.align-start {
+    align-items: flex-start;
+}
+
+/* align-items: flex-end
+   Items packed toward the end of the cross axis */
+.align-end {
+    align-items: flex-end;
+}
+
+/* align-items: center
+   Items centered along the cross axis */
+.align-center {
+    align-items: center;
+}
+
+/* align-items: baseline
+   Items aligned along their text baseline */
+.align-baseline {
+    align-items: baseline;
+}
+
+/*
+   FLEX-WRAP PROPERTY
+   Controls whether items wrap to new lines
+   ========================================================================== */
+
+/* Make containers narrower to demonstrate wrapping */
+.narrow-container {
+    max-width: 400px;
+}
+
+/* Make items wider to force wrapping scenarios */
+.wide-item {
+    min-width: 120px;
+    flex: 0 0 120px; /* Don't grow, don't shrink, basis 120px */
+}
+
+/* flex-wrap: nowrap (default)
+   All items stay on one line, may overflow */
+.wrap-nowrap {
+    flex-wrap: nowrap;
+}
+
+/* flex-wrap: wrap
+   Items wrap to new lines as needed */
+.wrap-wrap {
+    flex-wrap: wrap;
+}
+
+/* flex-wrap: wrap-reverse
+   Items wrap to new lines in reverse order */
+.wrap-reverse {
+    flex-wrap: wrap-reverse;
+}
+
+/*
+   ALIGN-CONTENT PROPERTY
+   Controls alignment of wrapped lines along the cross axis
+   Only has effect when flex-wrap allows wrapping
+   ========================================================================== */
+
+/* Make containers tall and narrow to see align-content effects */
+.tall-narrow-container {
+    min-height: 200px;
+    max-width: 300px;
+}
+
+/* align-content: stretch (default)
+   Lines stretch to fill the cross axis */
+.content-stretch {
+    align-content: stretch;
+}
+
+/* align-content: flex-start
+   Lines packed toward the start of the cross axis */
+.content-start {
+    align-content: flex-start;
+}
+
+/* align-content: flex-end
+   Lines packed toward the end of the cross axis */
+.content-end {
+    align-content: flex-end;
+}
+
+/* align-content: center
+   Lines centered along the cross axis */
+.content-center {
+    align-content: center;
+}
+
+/* align-content: space-between
+   Lines evenly distributed; first line at start, last at end */
+.content-between {
+    align-content: space-between;
+}
+
+/* align-content: space-around
+   Lines evenly distributed with equal space around each line */
+.content-around {
+    align-content: space-around;
+}
+
+/*
+   FLEX ITEM PROPERTIES
+   Properties that apply to individual flex items
+   ========================================================================== */
+
+/*
+   FLEX-GROW PROPERTY
+   Controls how much an item should grow relative to other items
+   ========================================================================== */
+
+/* flex-grow: 0 (default)
+   Item doesn't grow beyond its content size */
+.grow-0 {
+    flex-grow: 0;
+    background: linear-gradient(135deg, #fc8181, #f56565);
+}
+
+/* flex-grow: 1
+   Item grows to fill available space equally with other flex-grow: 1 items */
+.grow-1 {
+    flex-grow: 1;
+    background: linear-gradient(135deg, #68d391, #48bb78);
+}
+
+/* flex-grow: 2
+   Item grows twice as much as flex-grow: 1 items */
+.grow-2 {
+    flex-grow: 2;
+    background: linear-gradient(135deg, #63b3ed, #4299e1);
+}
+
+/*
+   FLEX-SHRINK PROPERTY
+   Controls how much an item should shrink relative to other items
+   ========================================================================== */
+
+/* flex-shrink: 0
+   Item doesn't shrink, may overflow container */
+.shrink-0 {
+    flex-shrink: 0;
+    background: linear-gradient(135deg, #fc8181, #f56565);
+}
+
+/* flex-shrink: 1 (default)
+   Item shrinks normally */
+.shrink-1 {
+    flex-shrink: 1;
+    background: linear-gradient(135deg, #68d391, #48bb78);
+}
+
+/* flex-shrink: 3
+   Item shrinks 3x more than normal shrinking items */
+.shrink-3 {
+    flex-shrink: 3;
+    background: linear-gradient(135deg, #63b3ed, #4299e1);
+}
+
+/*
+   FLEX-BASIS PROPERTY
+   Sets the initial main size of an item before free space is distributed
+   ========================================================================== */
+
+/* flex-basis: auto (default)
+   Size based on content or width/height properties */
+.basis-auto {
+    flex-basis: auto;
+    background: linear-gradient(135deg, #fc8181, #f56565);
+}
+
+/* flex-basis: 200px
+   Initial size of 200px along main axis */
+.basis-200 {
+    flex-basis: 200px;
+    background: linear-gradient(135deg, #68d391, #48bb78);
+}
+
+/* flex-basis: 100px
+   Initial size of 100px along main axis */
+.basis-100 {
+    flex-basis: 100px;
+    background: linear-gradient(135deg, #63b3ed, #4299e1);
+}
+
+/*
+   ALIGN-SELF PROPERTY
+   Overrides align-items for individual items
+   ========================================================================== */
+
+/* align-self: flex-start
+   Item aligned to start of cross axis */
+.self-start {
+    align-self: flex-start;
+    background: linear-gradient(135deg, #fc8181, #f56565);
+}
+
+/* align-self: center
+   Item centered along cross axis */
+.self-center {
+    align-self: center;
+    background: linear-gradient(135deg, #68d391, #48bb78);
+}
+
+/* align-self: flex-end
+   Item aligned to end of cross axis */
+.self-end {
+    align-self: flex-end;
+    background: linear-gradient(135deg, #63b3ed, #4299e1);
+}
+
+/* align-self: stretch
+   Item stretches along cross axis */
+.self-stretch {
+    align-self: stretch;
+    background: linear-gradient(135deg, #b794f6, #9f7aea);
+}
+
+/*
+   ORDER PROPERTY
+   Controls the visual order of items without changing HTML structure
+   ========================================================================== */
+
+/* order: 1
+   Item appears first in visual order */
+.order-1 {
+    order: 1;
+    background: linear-gradient(135deg, #fc8181, #f56565);
+}
+
+/* order: 2
+   Item appears second in visual order */
+.order-2 {
+    order: 2;
+    background: linear-gradient(135deg, #68d391, #48bb78);
+}
+
+/* order: 3
+   Item appears third in visual order */
+.order-3 {
+    order: 3;
+    background: linear-gradient(135deg, #63b3ed, #4299e1);
+}
+
+/*
+   SHORTHAND PROPERTIES
+   Convenient combinations of multiple flex properties
+   ========================================================================== */
+
+/*
+   FLEX-FLOW SHORTHAND
+   Combines flex-direction and flex-wrap
+   ========================================================================== */
+.flex-flow-demo {
+    flex-flow: row wrap; /* Same as: flex-direction: row; flex-wrap: wrap; */
+    max-width: 300px;
+}
+
+/*
+   FLEX SHORTHAND
+   Combines flex-grow, flex-shrink, and flex-basis
+   ========================================================================== */
+
+/* flex: 1
+   Same as: flex-grow: 1; flex-shrink: 1; flex-basis: 0%; */
+.flex-shorthand-1 {
+    flex: 1;
+    background: linear-gradient(135deg, #fc8181, #f56565);
+}
+
+/* flex: 2 1 100px
+   Same as: flex-grow: 2; flex-shrink: 1; flex-basis: 100px; */
+.flex-shorthand-2 {
+    flex: 2 1 100px;
+    background: linear-gradient(135deg, #68d391, #48bb78);
+}
+
+/* flex: auto
+   Same as: flex-grow: 1; flex-shrink: 1; flex-basis: auto; */
+.flex-shorthand-auto {
+    flex: auto;
+    background: linear-gradient(135deg, #63b3ed, #4299e1);
+}
+
+/*
+   PRACTICAL EXAMPLES
+   Real-world use cases for flexbox
+   ========================================================================== */
+
+/*
+   Perfect Centering
+   The holy grail of CSS - center both horizontally and vertically
+   ========================================================================== */
+.perfect-center {
+    justify-content: center; /* Center horizontally */
+    align-items: center;     /* Center vertically */
+    min-height: 200px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+.perfect-center .flex-item {
+    background: white;
+    color: #333;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+/*
+   Navigation Bar Layout
+   Common header navigation pattern
+   ========================================================================== */
+.navbar {
+    display: flex;
+    justify-content: space-between; /* Logo left, actions right */
+    align-items: center;             /* Center items vertically */
+    background: #2d3748;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+}
+
+.logo {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem; /* Modern way to add space between flex items */
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #63b3ed;
+}
+
+.nav-actions button {
+    background: #667eea;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.nav-actions button:hover {
+    background: #5a67d8;
+}
+
+/*
+   Card Layout
+   Equal height cards regardless of content length
+   ========================================================================== */
+.card-container {
+    display: flex;
+    gap: 1.5rem; /* Space between cards */
+    flex-wrap: wrap;
+}
+
+.card {
+    flex: 1;                    /* Cards grow equally */
+    min-width: 250px;           /* Minimum width before wrapping */
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;     /* Stack content vertically */
+}
+
+.card h4 {
+    color: #2d3748;
+    margin-bottom: 1rem;
+}
+
+.card p {
+    flex-grow: 1;              /* Text grows to fill available space */
+    margin-bottom: 1rem;
+    color: #718096;
+}
+
+.card button {
+    align-self: flex-start;    /* Button aligns to start, not stretched */
+    background: #667eea;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.card button:hover {
+    background: #5a67d8;
+}
+
+/*
+   Sidebar Layout
+   Fixed sidebar with flexible main content
+   ========================================================================== */
+.layout-container {
+    display: flex;
+    gap: 2rem;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    min-height: 300px;
+}
+
+.sidebar {
+    flex: 0 0 200px;           /* Don't grow, don't shrink, 200px wide */
+    background: #f7fafc;
+    padding: 1.5rem;
+    border-right: 1px solid #e2e8f0;
+}
+
+.sidebar h4 {
+    color: #2d3748;
+    margin-bottom: 1rem;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar li {
+    padding: 0.5rem 0;
+    color: #718096;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.main-content {
+    flex: 1;                   /* Grows to fill remaining space */
+    padding: 1.5rem;
+}
+
+.main-content h4 {
+    color: #2d3748;
+    margin-bottom: 1rem;
+}
+
+.main-content p {
+    color: #718096;
+    line-height: 1.6;
+}
+
+/*
+   Footer
+   ========================================================================== */
+footer {
+    text-align: center;
+    padding: 2rem;
+    margin-top: 3rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    color: white;
+}
+
+/*
+   RESPONSIVE DESIGN WITH FLEXBOX
+   ========================================================================== */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .nav-links {
+        gap: 1rem;
+    }
+
+    .card-container {
+        flex-direction: column;
+    }
+
+    .layout-container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        flex: none;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    .tutorial-section {
+        padding: 1rem;
+    }
+}
+
+/*
+   DEBUGGING HELPERS
+   Uncomment these to visualize flex containers and items
+   ========================================================================== */
+/*
+.flex-container {
+    outline: 2px solid red !important;
+}
+
+.flex-item {
+    outline: 1px solid blue !important;
+}
+*/
+
+/*
+   KEY FLEXBOX CONCEPTS SUMMARY:
+
+   FLEX CONTAINER (parent) properties:
+   - display: flex | inline-flex
+   - flex-direction: row | row-reverse | column | column-reverse
+   - flex-wrap: nowrap | wrap | wrap-reverse
+   - flex-flow: <flex-direction> <flex-wrap> (shorthand)
+   - justify-content: flex-start | flex-end | center | space-between | space-around | space-evenly
+   - align-items: stretch | flex-start | flex-end | center | baseline
+   - align-content: stretch | flex-start | flex-end | center | space-between | space-around
+
+   FLEX ITEM (child) properties:
+   - flex-grow: <number> (default: 0)
+   - flex-shrink: <number> (default: 1)
+   - flex-basis: <length> | auto (default: auto)
+   - flex: <grow> <shrink> <basis> (shorthand)
+   - align-self: auto | flex-start | flex-end | center | baseline | stretch
+   - order: <integer> (default: 0)
+
+   MAIN AXIS vs CROSS AXIS:
+   - Main axis: Direction set by flex-direction
+   - Cross axis: Perpendicular to main axis
+   - justify-content controls main axis alignment
+   - align-items controls cross axis alignment
+
+   ========================================================================== */

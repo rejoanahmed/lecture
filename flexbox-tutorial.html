@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Complete Flexbox Tutorial</title>
+  <link rel="stylesheet" href="flexbox-styles.css">
+</head>
+
+<body>
+  <header>
+    <h1>Complete Flexbox Tutorial</h1>
+    <p>A comprehensive guide to CSS Flexbox properties and concepts</p>
+  </header>
+
+  <main>
+    <!-- SECTION 1: FLEX CONTAINER BASICS -->
+    <section class="tutorial-section">
+      <h2>1. Flex Container Basics</h2>
+
+      <h3>display: flex</h3>
+      <p>The foundation - turns any element into a flex container</p>
+      <div class="example">
+        <div class="flex-container basic-flex">
+          <div class="flex-item">Item 1</div>
+          <div class="flex-item">Item 2</div>
+          <div class="flex-item">Item 3</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: FLEX-DIRECTION -->
+    <section class="tutorial-section">
+      <h2>2. flex-direction: Main Axis Control</h2>
+
+      <h3>flex-direction: row (default)</h3>
+      <div class="example">
+        <div class="flex-container flex-row">
+          <div class="flex-item">1</div>
+          <div class="flex-item">2</div>
+          <div class="flex-item">3</div>
+        </div>
+      </div>
+
+      <h3>flex-direction: row-reverse</h3>
+      <div class="example">
+        <div class="flex-container flex-row-reverse">
+          <div class="flex-item">1</div>
+          <div class="flex-item">2</div>
+          <div class="flex-item">3</div>
+        </div>
+      </div>
+
+      <h3>flex-direction: column</h3>
+      <div class="example">
+        <div class="flex-container flex-column">
+          <div class="flex-item">1</div>
+          <div class="flex-item">2</div>
+          <div class="flex-item">3</div>
+        </div>
+      </div>
+
+      <h3>flex-direction: column-reverse</h3>
+      <div class="example">
+        <div class="flex-container flex-column-reverse">
+          <div class="flex-item">1</div>
+          <div class="flex-item">2</div>
+          <div class="flex-item">3</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: JUSTIFY-CONTENT -->
+    <section class="tutorial-section">
+      <h2>3. justify-content: Main Axis Alignment</h2>
+
+      <h3>justify-content: flex-start (default)</h3>
+      <div class="example">
+        <div class="flex-container justify-start">
+          <div class="flex-item">1</div>
+          <div class="flex-item">2</div>
+          <div class="flex-item">3</div>
+        </div>
+      </div>
+
+      <h3>justify-content: flex-end</h3>
+      <div class="example">
+        <div class="flex-container justify-end">
+          <div class="flex-item">1</div>
+          <div class="flex-item">2</div>
+          <div class="flex-item">3</div>
+        </div>
+      </div>
+
+      <h3>justify-content: center</h3>
+      <div class="example">
+        <div class="flex-container justify-center">
+          <div class="flex-item">1</div>
+          <div class="flex-item">2</div>
+          <div class="flex-item">3</div>
+        </div>
+      </div>
+
+      <h3>justify-content: space-between</h3>
+      <div class="example">
+        <div class="flex-container justify-between">
+          <div class="flex-item">1</div>
+          <div class="flex-item">2</div>
+          <div class="flex-item">3</div>
+        </div>
+      </div>
+
+      <h3>justify-content: space-around</h3>
+      <div class="example">
+        <div class="flex-container justify-around">
+          <div class="flex-item">1</div>
+          <div class="flex-item">2</div>
+          <div class="flex-item">3</div>
+        </div>
+      </div>
+
+      <h3>justify-content: space-evenly</h3>
+      <div class="example">
+        <div class="flex-container justify-evenly">
+          <div class="flex-item">1</div>
+          <div class="flex-item">2</div>
+          <div class="flex-item">3</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: ALIGN-ITEMS -->
+    <section class="tutorial-section">
+      <h2>4. align-items: Cross Axis Alignment</h2>
+
+      <h3>align-items: stretch (default)</h3>
+      <div class="example">
+        <div class="flex-container tall-container align-stretch">
+          <div class="flex-item">1</div>
+          <div class="flex-item">2</div>
+          <div class="flex-item">3</div>
+        </div>
+      </div>
+
+      <h3>align-items: flex-start</h3>
+      <div class="example">
+        <div class="flex-container tall-container align-start">
+          <div class="flex-item">1</div>
+          <div class="flex-item">2</div>
+          <div class="flex-item">3</div>
+        </div>
+      </div>
+
+      <h3>align-items: flex-end</h3>
+      <div class="example">
+        <div class="flex-container tall-container align-end">
+          <div class="flex-item">1</div>
+          <div class="flex-item">2</div>
+          <div class="flex-item">3</div>
+        </div>
+      </div>
+
+      <h3>align-items: center</h3>
+      <div class="example">
+        <div class="flex-container tall-container align-center">
+          <div class="flex-item">1</div>
+          <div class="flex-item">2</div>
+          <div class="flex-item">3</div>
+        </div>
+      </div>
+
+      <h3>align-items: baseline</h3>
+      <div class="example">
+        <div class="flex-container tall-container align-baseline">
+          <div class="flex-item" style="font-size: 12px;">Small</div>
+          <div class="flex-item" style="font-size: 24px;">Large</div>
+          <div class="flex-item" style="font-size: 18px;">Medium</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: FLEX-WRAP -->
+    <section class="tutorial-section">
+      <h2>5. flex-wrap: Wrapping Control</h2>
+
+      <h3>flex-wrap: nowrap (default)</h3>
+      <div class="example">
+        <div class="flex-container narrow-container wrap-nowrap">
+          <div class="flex-item wide-item">Item 1</div>
+          <div class="flex-item wide-item">Item 2</div>
+          <div class="flex-item wide-item">Item 3</div>
+          <div class="flex-item wide-item">Item 4</div>
+        </div>
+      </div>
+
+      <h3>flex-wrap: wrap</h3>
+      <div class="example">
+        <div class="flex-container narrow-container wrap-wrap">
+          <div class="flex-item wide-item">Item 1</div>
+          <div class="flex-item wide-item">Item 2</div>
+          <div class="flex-item wide-item">Item 3</div>
+          <div class="flex-item wide-item">Item 4</div>
+        </div>
+      </div>
+
+      <h3>flex-wrap: wrap-reverse</h3>
+      <div class="example">
+        <div class="flex-container narrow-container wrap-reverse">
+          <div class="flex-item wide-item">Item 1</div>
+          <div class="flex-item wide-item">Item 2</div>
+          <div class="flex-item wide-item">Item 3</div>
+          <div class="flex-item wide-item">Item 4</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: ALIGN-CONTENT -->
+    <section class="tutorial-section">
+      <h2>6. align-content: Multi-line Cross Axis Alignment</h2>
+
+      <h3>align-content: stretch (default)</h3>
+      <div class="example">
+        <div class="flex-container tall-narrow-container wrap-wrap content-stretch">
+          <div class="flex-item wide-item">1</div>
+          <div class="flex-item wide-item">2</div>
+          <div class="flex-item wide-item">3</div>
+          <div class="flex-item wide-item">4</div>
+        </div>
+      </div>
+
+      <h3>align-content: flex-start</h3>
+      <div class="example">
+        <div class="flex-container tall-narrow-container wrap-wrap content-start">
+          <div class="flex-item wide-item">1</div>
+          <div class="flex-item wide-item">2</div>
+          <div class="flex-item wide-item">3</div>
+          <div class="flex-item wide-item">4</div>
+        </div>
+      </div>
+
+      <h3>align-content: center</h3>
+      <div class="example">
+        <div class="flex-container tall-narrow-container wrap-wrap content-center">
+          <div class="flex-item wide-item">1</div>
+          <div class="flex-item wide-item">2</div>
+          <div class="flex-item wide-item">3</div>
+          <div class="flex-item wide-item">4</div>
+        </div>
+      </div>
+
+      <h3>align-content: space-between</h3>
+      <div class="example">
+        <div class="flex-container tall-narrow-container wrap-wrap content-between">
+          <div class="flex-item wide-item">1</div>
+          <div class="flex-item wide-item">2</div>
+          <div class="flex-item wide-item">3</div>
+          <div class="flex-item wide-item">4</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 7: FLEX ITEM PROPERTIES -->
+    <section class="tutorial-section">
+      <h2>7. Flex Item Properties</h2>
+
+      <h3>flex-grow: Growing Items</h3>
+      <div class="example">
+        <div class="flex-container">
+          <div class="flex-item grow-0">grow: 0</div>
+          <div class="flex-item grow-1">grow: 1</div>
+          <div class="flex-item grow-2">grow: 2</div>
+        </div>
+      </div>
+
+      <h3>flex-shrink: Shrinking Items</h3>
+      <div class="example">
+        <div class="flex-container narrow-container">
+          <div class="flex-item wide-item shrink-0">shrink: 0</div>
+          <div class="flex-item wide-item shrink-1">shrink: 1</div>
+          <div class="flex-item wide-item shrink-3">shrink: 3</div>
+        </div>
+      </div>
+
+      <h3>flex-basis: Initial Size</h3>
+      <div class="example">
+        <div class="flex-container">
+          <div class="flex-item basis-auto">basis: auto</div>
+          <div class="flex-item basis-200">basis: 200px</div>
+          <div class="flex-item basis-100">basis: 100px</div>
+        </div>
+      </div>
+
+      <h3>align-self: Individual Item Alignment</h3>
+      <div class="example">
+        <div class="flex-container tall-container">
+          <div class="flex-item self-start">self-start</div>
+          <div class="flex-item self-center">self-center</div>
+          <div class="flex-item self-end">self-end</div>
+          <div class="flex-item self-stretch">self-stretch</div>
+        </div>
+      </div>
+
+      <h3>order: Visual Order</h3>
+      <div class="example">
+        <div class="flex-container">
+          <div class="flex-item order-3">First in HTML (order: 3)</div>
+          <div class="flex-item order-1">Second in HTML (order: 1)</div>
+          <div class="flex-item order-2">Third in HTML (order: 2)</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 8: PRACTICAL EXAMPLES -->
+    <section class="tutorial-section">
+      <h2>8. Practical Examples</h2>
+
+      <h3>Perfect Centering</h3>
+      <div class="example">
+        <div class="flex-container perfect-center">
+          <div class="flex-item">Perfectly Centered!</div>
+        </div>
+      </div>
+
+      <h3>Navigation Bar</h3>
+      <div class="example">
+        <nav class="navbar">
+          <div class="logo">Logo</div>
+          <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+          <div class="nav-actions">
+            <button>Login</button>
+          </div>
+        </nav>
+      </div>
+
+      <h3>Card Layout</h3>
+      <div class="example">
+        <div class="card-container">
+          <div class="card">
+            <h4>Card 1</h4>
+            <p>This is some content for the first card.</p>
+            <button>Read More</button>
+          </div>
+          <div class="card">
+            <h4>Card 2</h4>
+            <p>This card has different content length to show how flexbox handles varying content.</p>
+            <button>Read More</button>
+          </div>
+          <div class="card">
+            <h4>Card 3</h4>
+            <p>Short content.</p>
+            <button>Read More</button>
+          </div>
+        </div>
+      </div>
+
+      <h3>Sidebar Layout</h3>
+      <div class="example">
+        <div class="layout-container">
+          <aside class="sidebar">
+            <h4>Sidebar</h4>
+            <ul>
+              <li>Menu Item 1</li>
+              <li>Menu Item 2</li>
+              <li>Menu Item 3</li>
+            </ul>
+          </aside>
+          <main class="main-content">
+            <h4>Main Content</h4>
+            <p>This is the main content area that grows to fill the available space.</p>
+          </main>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 9: FLEXBOX SHORTHAND -->
+    <section class="tutorial-section">
+      <h2>9. Flexbox Shorthand Properties</h2>
+
+      <h3>flex-flow (flex-direction + flex-wrap)</h3>
+      <div class="example">
+        <div class="flex-container flex-flow-demo">
+          <div class="flex-item">Item 1</div>
+          <div class="flex-item">Item 2</div>
+          <div class="flex-item">Item 3</div>
+          <div class="flex-item">Item 4</div>
+        </div>
+      </div>
+
+      <h3>flex (grow + shrink + basis)</h3>
+      <div class="example">
+        <div class="flex-container">
+          <div class="flex-item flex-shorthand-1">flex: 1</div>
+          <div class="flex-item flex-shorthand-2">flex: 2 1 100px</div>
+          <div class="flex-item flex-shorthand-auto">flex: auto</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Flexbox Tutorial - Complete Guide to CSS Flexbox</p>
+  </footer>
+</body>
+
+</html>
